@@ -1,6 +1,0 @@
-streamlit
-torch
-ultralytics
-opencv-python-headless
-numpy
-libgl1
