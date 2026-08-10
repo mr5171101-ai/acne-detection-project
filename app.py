@@ -3,8 +3,6 @@ from ultralytics import YOLO
 import numpy as np
 import cv2
 
-
-
 # -----------------------------
 # Page Configuration
 # -----------------------------
@@ -19,7 +17,7 @@ st.set_page_config(
 # -----------------------------
 @st.cache_resource
 def load_model():
-    return YOLO("best (1).pt")   # Change path if needed
+    return YOLO("best (1).pt")   # Model path
 
 model = load_model()
 
@@ -51,6 +49,9 @@ if uploaded_file is not None:
 
         with st.spinner("Analyzing image..."):
 
+            # Reset file pointer to beginning
+            uploaded_file.seek(0)
+            
             file_bytes = np.asarray(
                 bytearray(uploaded_file.read()),
                 dtype=np.uint8
